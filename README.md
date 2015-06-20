@@ -1,28 +1,52 @@
-# Dyna::Pagarme
+# Dyna Pagarme
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dyna/pagarme`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Instalação
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'dyna-pagarme'
 ```
 
-And then execute:
+Ou:
 
-    $ bundle
+```bash
+$ gem install dyna-pagarme
+```
 
-Or install it yourself as:
+## Como usar
 
-    $ gem install dyna-pagarme
+Para criar uma transação:
 
-## Usage
+```ruby
+PagarMe.transactions.create({…})
+#=> {
+  "object" => "transaction",
+  "status" => "processing",
+  …
+  "customer" => {…},
+  "card" => {
+    "object" => "card",
+    …
+  },
+  "metadata" => {…}
+}
+```
 
-TODO: Write usage instructions here
+Os parâmetros aplicáveis podem ser encontrados em http://pagar.me/docs.
+
+Para criar uma conta bancária:
+
+```ruby
+PagarMe.bank_accounts.create({…})
+#=> {
+    "object" => "bank_account",
+    "id" => 4840,
+    "date_created" => "2015-03-19T15:35:40.000Z",
+    …
+}
+```
+
+Os parâmetros aplicáveis podem ser encontrados em http://pagar.me/docs.
 
 ## Development
 
